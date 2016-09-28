@@ -1,98 +1,47 @@
-<!DOCTYPE html> 
-<html> 
-    <head> 
+<!DOCTYPE html>
+<html>
+    <head>
         <meta charset="utf-8"> 
-        <title>Регистрация почтового ящика @e1.ru</title>
+        <title>
+            Печать
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style type="text/css"> 
+            body{
+                    background-image: url("http://www.freelargeimages.com/wp-content/uploads/2016/06/Background.jpg");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                } 
+            a{
+                color: red;
+            }
+            @media print { 
+                #progress-bar{
+                    display: none;
+                }
+                a[href]:after { 
+                content: " [" attr(href) "]"; 
+                } 
+                a { 
+                text-decoration: none; 
+                } 
+                p { 
+                text-align: justify; 
+                }
+                body{
+                    background: none;
+                }
+            } 
+        </style>    
     </head>
     <body>
-        <table border="1" align="center" bgcolor="Honeydew" height="100%"> 
-            <thead align="center">
-                <tr><td colspan="3">Адрес и пароль</td></tr>
-            </thead>
-            <tbody>
-                <tr><td width="10%">(*) E-mail:</td><td width="20%"><input type="text" size="20">@e1.ru</td><td>    Вы можете выбрать любое имя, длиной от 5 до 16 символов и состоящее из латинских букв, цифр, знака подчеркивания ("_") или знака минус ("-"). Имя ящика не может начинаться с символов минус ("-") или знака подчеркивания ("_") и не может заканчиваться символом минус ("-"). В адресе недопустимы последовательности символов два минуса ("--").</td></tr>
-                <tr><td width="10%">(*) Пароль:</td><td width="20%"><input type="text" size="20"></td><td rowspan="2">Пароль должен быть не менее 8 символов, состоять из цифр и английских букв, знаков подчеркивания ("_") или минус ("-"). Пароли не стоит записывать на бумажке и наклеивать на монитор..</td></tr>
-                <tr><td width="10%">(*) Повторите пароль:</td><td width="20%"><input type="text" size="20"></td></tr>
-                <tr><td colspan="3" align="center">Если Вы забудете пароль</td></tr>
-                <tr><td width="10%">(*) Выберите вопрос:</td>
-                <td> <select>
-                         <option disabled selected="selected">Выберите вопрос</option>
-                         <option>Девичья фамилия Вашей мамы</option>
-                         <option>Любимый цвет</option>
-                     </select>
-                </td>
-                <td rowspan="3">Не забывайте вопрос и ответ!</td></tr>
-                <tr><td width="10%">Или задайте свой</td><td width="20%"><input type="text" size="20"></td></tr>
-                <tr><td width="10%">(*) Ответ</td><td width="20%"><input type="text" size="20"></td></tr>
-                <tr><td width="10%">Запасной E-mail:</td><td width="20%"><input type="text" size="20"></td><td> На этот e-mail мы вышлем Вам пароль, если Вы его забудете</td></tr>
-                <tr><td colspan="3" align="center">Информация о пользователе</td></tr>
-                <tr><td width="10%">(*) Имя:</td><td width="20%"><input type="text" size="20"></td><td></td></tr>
-                <tr><td width="10%">(*) Фамилия:</td><td width="20%"><input type="text" size="20"></td><td></td></tr>
-                <tr><td width="10%">(*) Дата рождения:</td>
-                <td> <select>
-                         <option disabled selected="selected">День</option>
-                         <option>1</option>
-                         <option>2</option>
-                         <option>3</option>
-                         <option>4</option>
-                         <option>5</option>
-                         <option>6</option>
-                         <option>7</option>
-                         <option>8</option>
-                         <option>9</option>
-                         <option>10</option>
-                         <option>11</option>
-                         <option>12</option>
-                         <option>13</option>
-                         <option>14</option>
-                         <option>15</option>
-                         <option>16</option>
-                         <option>17</option>
-                         <option>18</option>
-                         <option>лень</option>
-                     </select>
-                     <select>
-                      <option disabled selected="selected">Месяц</option>
-                         <option>1</option>
-                         <option>2</option>
-                         <option>3</option>
-                         <option>4</option>
-                         <option>5</option>
-                         <option>6</option>
-                         <option>7</option>
-                         <option>8</option>
-                         <option>9</option>
-                         <option>10</option>
-                         <option>11</option>
-                         <option>12</option>  
-                    </select>
-                    <select>
-                         <option disabled selected="selected">Год</option>
-                         <option>1990</option>
-                         <option>1991</option>
-                         <option>1992</option>
-                         <option>1993</option>
-                         <option>1994</option>
-                         <option>1995</option>
-                         <option>1996</option>
-                         <option>1997</option>
-                         <option>1998</option>
-                         <option>1999</option>
-                         <option>2000</option>
-                         <option>2001</option>  
-                    </select>
-                </td><td></td></tr>
-                <tr><td width="10%">(*) Ваш пол:</td><td><form><input type="radio" name="sex">женский<input type="radio" name="sex">мужской</form></td><td></td></tr>
-                <tr><td colspan="3" align="center">Регистрация на <a href="http://www.e1.ru/">E1.ru</a></td></tr>
-                <tr><td width="10%">Зарегистрировать Вас на E1.ru? :</td><td><input type="radio">Зарегистрировать этот ящик в качестве пользователя на E1.ru</td><td>Если у Вас до сих пор нет регистрации на <a href="http://www.e1.ru/mye1/">E1.ru</a>, советуем Вам отметить данный пункт. Паролем для доступа на E1.ru будет Ваш пароль на почту.</td></tr>
-                <tr><td colspan="3" align="center">Соглашение об использовании</td></tr>
-                <tr><td colspan="3" align="center"><input type="radio">Я прочитал и согласен с <a href="http://support.e1.ru/help/3208/3228/">Пользовательским соглашением</a>, а также с <a href="http://support.e1.ru/help/3208/3348">Политикой конфиденциальности</a> портала E1.RU.</td></tr>
-            </tbody>
-        </table>
-        <center>
-            <form>
-                <button ><a href="http://risovach.ru/upload/2013/06/mem/oy-nu-spasibo_21482019_orig_.jpeg">Зарегистрироваться</a></button>
-            </form>
-        </center>
+        <a href="https://www.kalen-dar.ru/">Ми-ми-ми</a>
+        <p> В турецких банях не принято купаться раздетыми, поэтому из полотенца сооружают юбочку, а гранулометрический анализ нейтрализует глубокий желтозём.</p>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar"
+            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%"></div>
+        </div>
     </body>
 </html>
