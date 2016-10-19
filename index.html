@@ -2,58 +2,73 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Домашнее задание - 4</title>
-        <style>
-            html, body{
-                height: 810px;
-                width: 1300px;
-                overflow: hidden;
+        <title>домашка - 5 (вроде)</title>
+        <style type="text/css">
+            html, body {
+                width: 100%;
+                height: 100%;
+                min-width: 100%;
+                min-height: 100%;
             }
         </style>
-    </head>
-    <body>
         <script type="text/javascript">
-                var RECTSPEED = {};
-                main();
-                function main(){
+        var inputedString = '';
+        const cheat = 'IWANTTOSLEEP';
+        var RECTSPEED = {};
+            function firstCheat(event) {
+                inputedString += String.fromCharCode(event.keyCode)
+                if(inputedString.indexOf(cheat) !== -1) {
+                    inputedString = '';
+                    document.body.removeChild(document.body.childNodes[1]);
+                    while (document.body.hasChildNodes()) {
+                        document.body.removeChild(document.body.lastChild);
+                    }
                     rectangles();
                     setInterval(animation, 40);
                 }
-                function rectangles(){
-                    for (var i=0; i<10; i++){
-                        var xPos = Math.random()*1024;
-                        var yPos = Math.random()*700;
-                        var sizeRect = Math.random()*(100 - 40) + 40;
-                        var redComponents = Math.floor(255*Math.random());
-                        var greenComponents = Math.floor(255*Math.random());
-                        var blueComponents = Math.floor(255*Math.random());
-                        var sign = [1, -1];
-                        var speedVertical = Math.random()*5*sign[Math.floor(Math.random()*2)] + 5;
-                        var speedHorizontal = Math.random()*5*sign[Math.floor(Math.random()*2)] + 5;
-                        var rect = document.createElement("div");   
-                        rect.style.width = sizeRect + "px";
-                        rect.style.height = sizeRect + "px";
-                        rect.style.position = "absolute";
-                        rect.style.left = xPos + "px";
-                        rect.style.top = yPos + "px";
-                        rect.style.backgroundColor = "rgb(" + redComponents + "," + greenComponents + "," + blueComponents + ")";
-                        document.body.appendChild(rect);
-                        RECTSPEED[i] = [speedVertical, speedHorizontal];
+                if (inputedString.length > 15) {
+                    inputedString = inputedString.substring(1)
+                }
+
+            }
+            function rectangles(){
+                for (var i=0; i<10; i++){
+                    var xPos = Math.random()*1024;
+                    var yPos = Math.random()*700;
+                    var sizeRect = Math.random()*(100 - 40) + 40;
+                    var redComponents = Math.floor(255*Math.random());
+                    var greenComponents = Math.floor(255*Math.random());
+                    var blueComponents = Math.floor(255*Math.random());
+                    var sign = [1, -1];
+                    var speedVertical = Math.random()*5*sign[Math.floor(Math.random()*2)] + 5;
+                    var speedHorizontal = Math.random()*5*sign[Math.floor(Math.random()*2)] + 5;
+                    var rect = document.createElement("div");   
+                    rect.style.width = sizeRect + "px";
+                    rect.style.height = sizeRect + "px";
+                    rect.style.position = "absolute";
+                    rect.style.left = xPos + "px";
+                    rect.style.top = yPos + "px";
+                    rect.style.backgroundColor = "rgb(" + redComponents + "," + greenComponents + "," + blueComponents + ")";
+                    document.body.appendChild(rect);
+                    RECTSPEED[i] = [speedVertical, speedHorizontal];
+                }
+            }
+            function animation(){
+                var listRect = document.body.getElementsByTagName("div");
+                for (var i = 0; i < listRect.length; i++) {
+                    listRect[i].style.left = parseInt(listRect[i].style.left) + RECTSPEED[i][0] + "px";
+                    listRect[i].style.top = parseInt(listRect[i].style.top) + RECTSPEED[i][1] + "px";
+                    if (parseInt(listRect[i].style.left) >= 1550 || parseInt(listRect[i].style.left) <= 0){
+                        RECTSPEED[i][0] = RECTSPEED[i][0]*(-1);
+                    }
+                    if (parseInt(listRect[i].style.top) >= 750 || parseInt(listRect[i].style.top) <= 0){
+                        RECTSPEED[i][1] = RECTSPEED[i][1]*(-1);
                     }
                 }
-                function animation(){
-                    var listRect = document.body.getElementsByTagName("div");
-                    for (var i = 0; i < listRect.length; i++) {
-                        listRect[i].style.left = parseInt(listRect[i].style.left) + RECTSPEED[i][0] + "px";
-                        listRect[i].style.top = parseInt(listRect[i].style.top) + RECTSPEED[i][1] + "px";
-                        if (parseInt(listRect[i].style.left) >= 1550 || parseInt(listRect[i].style.left) <= 0){
-                            RECTSPEED[i][0] = RECTSPEED[i][0]*(-1);
-                        }
-                        if (parseInt(listRect[i].style.top) >= 750 || parseInt(listRect[i].style.top) <= 0){
-                            RECTSPEED[i][1] = RECTSPEED[i][1]*(-1);
-                        }
-                    }
-                }
-            </script>
+            }
+        </script>
+    </head>
+    <body onkeyup="firstCheat(event)">
+        <p>Привет, я текст</p>
     </body>
 </html>
